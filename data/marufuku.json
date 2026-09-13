@@ -1,0 +1,14 @@
+{
+  "store_id": "marufuku",
+  "store_name": "酒場まる福",
+  "business_type": "居酒屋",
+  "store_rules": {
+    "appearance": [],
+    "opening_tasks": [],
+    "absence_rule": null,
+    "break_rule": null,
+    "meal_rule": null,
+    "closing_tasks": []
+  },
+  "question_form_url": "https://example.com/marufuku-question-form"
+}
