@@ -7,7 +7,7 @@
 <title>新人バイトFAQ｜店長入力</title>
 <style>
 :root{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;color:#111827;background:#f5f7fb;line-height:1.65}
-*{box-sizing:border-box}body{margin:0}.wrap{max-width:640px;margin:auto;padding:16px 14px 48px}.hero{background:#111827;color:#fff;border-radius:18px;padding:22px 18px;margin-bottom:14px}.hero h1{font-size:22px;margin:0 0 6px}.hero p{margin:0;color:#d1d5db;font-size:14px}.notice{background:#fff7ed;border:1px solid #fed7aa;border-radius:14px;padding:13px 14px;margin:12px 0;font-size:13px}.card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:16px;margin:12px 0}.card h2{font-size:17px;margin:0 0 10px}.required{font-size:12px;margin-left:5px;color:#b91c1c}.help{font-size:12px;color:#6b7280;margin:5px 0 10px}label{display:block;font-weight:700;font-size:14px;margin:12px 0 6px}input[type=text],input[type=url],select,textarea{width:100%;font:inherit;font-size:16px;border:1px solid #cbd5e1;border-radius:10px;padding:11px;background:#fff}textarea{min-height:78px;resize:vertical}.checks{display:grid;gap:8px}.check{display:flex;gap:10px;align-items:flex-start;font-weight:500;padding:10px;border:1px solid #e5e7eb;border-radius:10px;background:#fafafa}.check input{width:20px;height:20px;flex:0 0 auto;margin:0}.actions{position:sticky;bottom:0;background:rgba(245,247,251,.96);padding:10px 0;display:grid;gap:8px}.btn{border:0;border-radius:12px;padding:13px 15px;font-size:16px;font-weight:800;cursor:pointer}.primary{background:#111827;color:#fff}.secondary{background:#e5e7eb;color:#111827}.danger{background:#fee2e2;color:#991b1b}.error{color:#b91c1c;font-size:13px;font-weight:700;display:none;margin-top:8px}.output{display:none}.output textarea{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;min-height:280px}.small{font-size:12px;color:#6b7280}.footer{font-size:12px;color:#6b7280;text-align:center;margin-top:22px}
+*{box-sizing:border-box}body{margin:0}.wrap{max-width:640px;margin:auto;padding:16px 14px 48px}.hero{background:#111827;color:#fff;border-radius:18px;padding:22px 18px;margin-bottom:14px}.hero h1{font-size:22px;margin:0 0 6px}.hero p{margin:0;color:#d1d5db;font-size:14px}.notice{background:#fff7ed;border:1px solid #fed7aa;border-radius:14px;padding:13px 14px;margin:12px 0;font-size:13px}.card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:16px;margin:12px 0}.card h2{font-size:17px;margin:0 0 10px}.required{font-size:12px;margin-left:5px;color:#b91c1c}.help{font-size:12px;color:#6b7280;margin:5px 0 10px}label{display:block;font-weight:700;font-size:14px;margin:12px 0 6px}input[type=text],input[type=url],select,textarea{width:100%;font:inherit;font-size:16px;border:1px solid #cbd5e1;border-radius:10px;padding:11px;background:#fff}textarea{min-height:78px;resize:vertical}.checks{display:grid;gap:8px}.check{display:flex;gap:10px;align-items:flex-start;font-weight:500;padding:10px;border:1px solid #e5e7eb;border-radius:10px;background:#fafafa}.check input{width:20px;height:20px;flex:0 0 auto;margin:0}.actions{position:sticky;bottom:0;background:rgba(245,247,251,.96);padding:10px 0;display:grid;gap:8px}.btn{border:0;border-radius:12px;padding:13px 15px;font-size:16px;font-weight:800;cursor:pointer}.primary{background:#111827;color:#fff}.secondary{background:#e5e7eb;color:#111827}.danger{background:#fee2e2;color:#991b1b}.error{color:#b91c1c;font-size:13px;font-weight:700;display:none;margin-top:8px}.output{display:none}.output textarea{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;min-height:320px}.small{font-size:12px;color:#6b7280}.footer{font-size:12px;color:#6b7280;text-align:center;margin-top:22px}
 </style>
 </head>
 <body>
@@ -16,8 +16,11 @@
 <div class="notice"><strong>大事なルール</strong><br>電話番号・個人LINE・給与・仕入価格などの個人情報／機密情報は入力しないでください。アレルギー、食中毒、体調不良、事故、火災、重大なクレーム等の判断手順は、このフォームでは自由記述せず、店長・責任者への報告を基本にします。</div>
 <form id="form" novalidate>
 <section class="card"><h2>1. 店舗情報</h2>
+<label for="storeId">店舗ID<span class="required">必須</span></label>
+<input id="storeId" type="text" maxlength="64" required pattern="[A-Za-z0-9_-]{1,64}" autocomplete="off" placeholder="例：marufuku">
+<p class="help">固定URLの `?id=` と同じIDです。英数字・ハイフン・アンダースコアのみ。</p>
 <label for="storeName">店舗名<span class="required">必須</span></label>
-<input id="storeName" type="text" maxlength="80" required autocomplete="organization" placeholder="例：酒場まる福">
+<input id="storeName" type="text" maxlength="100" required autocomplete="organization" placeholder="例：酒場まる福">
 <label for="businessType">業態<span class="required">必須</span></label>
 <select id="businessType" required><option value="">選択してください</option><option>居酒屋</option><option>カフェ</option><option>ラーメン・麺類</option><option>その他</option></select>
 </section>
@@ -58,13 +61,13 @@
 </div></section>
 <section class="card"><h2>8. 店長に質問するフォーム</h2>
 <label for="questionUrl">質問フォームURL<span class="required">必須</span></label>
-<input id="questionUrl" type="url" maxlength="500" required placeholder="https://forms.google.com/...">
+<input id="questionUrl" type="url" maxlength="2000" required placeholder="https://forms.google.com/...">
 <p class="help">HTTPSのURLのみ。電話番号や個人LINEは使いません。</p>
 </section>
 <section class="card"><h2>9. 最終確認</h2><label class="check"><input id="confirm" type="checkbox">この内容は店舗で実際に採用しているルールだけで、個人情報・機密情報を含んでいません。</label><div id="error" class="error"></div></section>
 <div class="actions"><button class="btn primary" type="submit">入力内容からデータを作る</button><button class="btn secondary" type="button" id="reset">入力をリセット</button></div>
 </form>
-<section id="output" class="card output"><h2>作成された店舗データ</h2><p class="help">このJSONは「事実データ」です。AIに渡す場合も、店舗ルールを推測・追加しないよう指示してください。</p><textarea id="json" readonly></textarea><div class="actions"><button class="btn primary" id="copy" type="button">JSONをコピー</button><button class="btn danger" id="back" type="button">フォームに戻る</button></div><p id="copied" class="small"></p></section>
+<section id="output" class="card output"><h2>作成された店舗データ</h2><p class="help">schema.json に適合するJSONを作成します。このJSONは「事実データ」です。AIに渡す場合も、店舗ルールを推測・追加しないよう指示してください。</p><textarea id="json" readonly></textarea><div class="actions"><button class="btn primary" id="copy" type="button">JSONをコピー</button><button class="btn danger" id="back" type="button">フォームに戻る</button></div><p id="copied" class="small"></p></section>
 <p class="footer">新人バイトFAQ MVP｜AIは店舗ルールを推測・補完しません。</p>
 </main>
 <script>
@@ -73,17 +76,19 @@ const $=id=>document.getElementById(id);
 const values=name=>Array.from(document.querySelectorAll('input[name="'+name+'"]:checked')).map(x=>x.value);
 $('form').addEventListener('submit',e=>{
  e.preventDefault();
- const name=$('storeName').value.trim(), type=$('businessType').value, absence=$('absenceMethod').value, br=$('breakRule').value, meal=$('mealRule').value, url=$('questionUrl').value.trim();
+ const id=$('storeId').value.trim(), name=$('storeName').value.trim(), type=$('businessType').value, absence=$('absenceMethod').value, br=$('breakRule').value, meal=$('mealRule').value, url=$('questionUrl').value.trim();
  let msg='';
- if(!name||!type||!absence||!br||!meal||!url||!$('confirm').checked) msg='必須項目と最終確認をすべて入力してください。';
- else if(!/^https:\/\//i.test(url)) msg='質問フォームURLはHTTPSから始まるURLにしてください。';
+ if(!/^[A-Za-z0-9_-]{1,64}$/.test(id)) msg='店舗IDは英数字・ハイフン・アンダースコアの1〜64文字で入力してください。';
+ else if(!name||!type||!absence||!br||!meal||!url||!$('confirm').checked) msg='必須項目と最終確認をすべて入力してください。';
+ else {try{const u=new URL(url);if(u.protocol!=='https:')msg='質問フォームURLはHTTPSから始まるURLにしてください。';}catch(_){msg='質問フォームURLが正しくありません。';}}
  if(msg){$('error').textContent=msg;$('error').style.display='block';return;}
- const data={source:'manager_input_v1',store_name:name,business_type:type,appearance:values('appearance'),opening_tasks:values('opening'),absence_rule:absence,break_rule:br,meal_rule:meal,closing_tasks:values('closing'),question_form_url:url};
+ const data={store_id:id,store_name:name,business_type:type,store_rules:{appearance:values('appearance'),opening_tasks:values('opening'),absence_rule:{method:absence,note:''},break_rule:br==='店舗ルール未登録'?null:br,meal_rule:meal==='店舗ルール未登録'?null:meal,closing_tasks:values('closing')},question_form_url:url};
+ if(absence==='店舗ルール未登録')data.store_rules.absence_rule=null;
  $('json').value=JSON.stringify(data,null,2);$('output').style.display='block';$('output').scrollIntoView({behavior:'smooth',block:'start'});$('error').style.display='none';
 });
 $('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('json').value);$('copied').textContent='コピーしました。';}catch(e){$('json').select();document.execCommand('copy');$('copied').textContent='コピーしました。';}});
 $('reset').addEventListener('click',()=>{if(confirm('入力内容をリセットしますか？'))$('form').reset();});
-$('back').addEventListener('click',()=>{ $('output').style.display='none'; $('form').scrollIntoView({behavior:'smooth',block:'start'}); });
+$('back').addEventListener('click',()=>{$('output').style.display='none';$('form').scrollIntoView({behavior:'smooth',block:'start'});});
 })();
 </script>
 </body>
