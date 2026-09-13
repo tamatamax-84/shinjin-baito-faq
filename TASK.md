@@ -1,27 +1,42 @@
 # TASK
 
 ## Current task
-Establish the multi-AI collaboration workflow before expanding product features.
+Complete and validate the 新人バイトFAQ MVP v1.2 as the first production-ready prototype.
 
 ## Objective
-Use GitHub as the shared workspace for ChatGPT/Chief, GitHub Copilot, and Gemini so future work can be handed between AIs with minimal user copy/paste.
+Provide a safe, smartphone-first fixed-URL FAQ that reads only registered store data and lets a manager generate schema-compatible store JSON without AI inventing store rules.
 
 ## Current phase
-Protocol foundation.
+Final MVP validation.
 
-## Required behavior
-- Chief owns architecture and final decisions.
-- Coding Agent implements only explicit tasks.
-- Gemini reviews from an independent perspective.
-- All important decisions and test results are recorded in GitHub.
-- No AI invents missing store-specific information.
+## Completed
+- Fixed-URL FAQ UI with `?id=<store_id>` routing.
+- Store ID and JSON `store_id` consistency validation.
+- Safe rendering without `innerHTML`.
+- HTTPS-only question form validation.
+- Unregistered/invalid store data fails safely instead of being guessed.
+- Smartphone-first manager input form.
+- Manager form output aligned with `schema.json`.
+- GitHub Pages deployment workflow exists.
+- AI collaboration protocol aligned with AI TEAM HQ.
 
-## Next task after protocol review
-Create the reusable AI task/review templates and a minimal handoff example.
+## Remaining validation
+- Confirm the GitHub Pages deployment is live after the latest `main` commit.
+- Confirm the FAQ URL with `?id=marufuku` renders the sample store safely.
+- Confirm `manager.html` generates schema-compatible JSON on iPhone Safari.
+- Confirm invalid/missing store IDs and invalid store data show safe error/unregistered states.
+
+## Completion criteria
+- `schema.json` accepts the generated manager JSON shape.
+- Existing FAQ behavior remains intact.
+- Safety rules remain intact.
+- GitHub Pages deployment succeeds.
+- iPhone Safari smoke test passes for both FAQ and manager flows.
+- Test results and any remaining limitations are recorded in `TEST_REPORT.md`.
 
 ## Non-goals
 - No dashboard.
 - No AI chat for restaurant staff.
 - No payment system.
 - No analytics.
-- No broad automation until the collaboration protocol is proven.
+- No automatic invention or completion of store-specific rules.
